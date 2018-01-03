@@ -1,7 +1,10 @@
 $(document).ready(function() {
+  var APIKEY = "5145288f4fd76b9332393c30382a8524"
   function getWeather(latitude, longitude) {
-    $.getJSON('https://fcc-weather-api.glitch.me/api/current?lat='+latitude+'35&lon='+longitude+'', function(data) {
-    console.log(data.main.temp);
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&units=imperial&APPID='+APIKEY+'', function(data) {
+    $("#city").html(data.name)
+    $("#temperature").html(data.main.temp+" &deg;C")
+    $("#icon").html('<img src="http://openweathermap.org/img/w/'+data.weather[0].icon+'.png">')
   })
   }
   navigator.geolocation.getCurrentPosition(function(position) {
