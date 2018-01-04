@@ -10,7 +10,8 @@ $(document).ready(function() {
     $("#icon").html('<img src="http://openweathermap.org/img/w/'+icon+'.png">')
     $(".switch").click(function() {
       console.log("click");
-
+      var temperature = ((temperature-32)*.5556)
+      $("#temperature").toggle();
     })
   })
   }
