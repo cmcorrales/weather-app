@@ -6,19 +6,38 @@ $(document).ready(function() {
     var temperature = data.main.temp;
     var icon = data.weather[0].icon
     $("#city").html(city)
-    $("#temperature").html(temperature+" &deg;F")
     $("#icon").html('<img src="http://openweathermap.org/img/w/'+icon+'.png">')
-    $(".switch").click(function() {
-      console.log("click");
-      var temperature = ((temperature-32)*.5556)
-      $("#temperature").toggle();
-    })
+      var temp = $("#temperature")
+      $("switch").onclick = toggleClass;
+      var celsiusTemp = (temperature - 32) * 5/9;
+    function toggleClass(){
+      if(temp.className == 'celsius'){
+          temp.className = 'fahrenheit'
+      } else {
+          temp.className = 'celsius'
+      }
+    }
+    $(".celsius").html(celsiusTemp);
+    $(".fahrenheit").html(temperature);
+    // $("#switch").click(function(){
+    //   function toggleClass() {
+    //     if 
+    //   }
+    //   $("p").toggle();
+    //   if ($("input").is(':checked')) {
+    //     console.log("click")
+    //     $("h2").html(celsiusTemp);
+    //   }
+    //   else {
+    //     $("h2").html(temperature);
+    //   }
+    // });
   })
   }
   navigator.geolocation.getCurrentPosition(function(position) {
     getWeather(position.coords.latitude, position.coords.longitude)
   });
   function geo_error() {
-    alert("Sorry, no position available, cannot determine weather.");
+    alert("Sorry, cannot determine your location.");
   }
 })

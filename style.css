@@ -57,12 +57,12 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.on {
+.fahrenheit {
   display: none;
 }
 
-.on,
-.off {
+.fahrenheit,
+.celsius {
   color: white;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -73,20 +73,20 @@ input:checked + .slider:before {
   padding: 2px;
 }
 
-.on {
+.fahrenheit {
   top: 8px;
 }
 
-.off {
+.celsius {
   left: auto;
   right: -5px;
   top: 8px;
 }
 
-input:checked+ .slider .on {
+input:checked+ .slider .fahrenheit {
   display: block;
 }
 
-input:checked + .slider .off {
+input:checked + .slider .celsius {
   display: none;
 }
